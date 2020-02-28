@@ -5,6 +5,14 @@
     <title>Title</title>
 </head>
 <body>
+<nav>
+    <ul>
+        <div>Logo</div>
+        <li><a href="/">Cars Listing</a></li>
+        <li><a href="/addcategory">Add Category</a></li>
+        <li><a href="/addcar">Add Car</a></li>
+    </ul>
+</nav>
 <h1>Category List</h1>
 <div th:each="category : ${categories}">
     <h2 th:text="${category.name}"></h2>

@@ -3,8 +3,11 @@ package com.example.carslisting;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.validation.Valid;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -55,6 +58,26 @@ public class HomeController {
 
         // Grab all the categories from the database and send them to the template
         model.addAttribute("categories", categoryRepository.findAll());
-        return "index";
+        return "show";
+    }
+
+    @RequestMapping("/addcategory")
+    public String addcat(Model model){
+       model.addAttribute("category", new Category());
+       return "categoryform";
+    }
+
+    @PostMapping("/process1")
+    public String process1Form(@Valid Category category, BindingResult result) {
+        if (result.hasErrors()){
+            return "categoryform";
+        }
+        categoryRepository.save(category);
+        return "redirect:/";
+    }
+
+    @RequestMapping("/addcar")
+    public String addcar(Model model){
+        return "carform";
     }
 }

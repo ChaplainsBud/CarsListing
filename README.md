@@ -1,9 +1,15 @@
-One to Many Multiplied: One Category, Many Cars
+Exact Problem:
 
-How do I add new Categories with associated Cars? 
+I can populate page in HomeController.
+I cannot populate page in an HTML page. 
 
-A category does not have a car? It has many cars. 
-A car has a category.
+1. How do I change this? 
+2. What is the smallest version of this I can solve?
+3. Is there an analogy, like the TodoList? 
+
+SOLUTION1: Just get the category form to take in data and display on show
+
+
 
 ```
 ToDo List allows create, read, update, and delete
