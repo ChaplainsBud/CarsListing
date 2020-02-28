@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Category List</h1>
+<div th:each="category : ${categories}">
+    <h2 th:text="${category.name}"></h2>
+    <ul>
+        <th:block th:each="car : ${category.cars}">
+            <li th:inline="text"><b>[[${car.model}</b>
+            released in
+            [[${car.year}]].
+            </li>
+        </th:block>
+    </ul>
+</div>
+</body>
+</html>
