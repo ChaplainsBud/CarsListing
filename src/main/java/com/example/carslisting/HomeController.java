@@ -17,6 +17,8 @@ public class HomeController {
     @Autowired
     CategoryRepository categoryRepository;
     // why do we have two repositories, but only autowire the owner?
+    @Autowired
+    CarRepository carRepository; // should I delete? seems to be needed for carform
 
     @RequestMapping("/")
     public String index(Model model){
@@ -76,8 +78,18 @@ public class HomeController {
         return "redirect:/";
     }
 
+    @PostMapping("/process2")
+    public String process2Form(@Valid Car car, BindingResult result) {
+        if (result.hasErrors()){
+            return "carform";
+        }
+        carRepository.save(car);
+        return "redirect:/";
+    }
+
     @RequestMapping("/addcar")
     public String addcar(Model model){
+        model.addAttribute("car", new Car());
         return "carform";
     }
 }

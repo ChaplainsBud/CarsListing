@@ -1,19 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-<form action="">
-    <label for="man">Manufacturer</label>
-    <input id="man" type="text">
-    <label for="typ">Model</label>
-    <input id="typ" type="text">
+
+
+<!--<form action="#" th:action="@{/process1}" th:object="${category}" method="post">-->
+<!--    <input type="hidden" th:field="*{id}" />-->
+<!--    <label for="cat">Category:</label>-->
+<!--    <input id="cat" type="text" th:field="*{name}">-->
+<!--    <span th:if="${#fields.hasErrors('name')}"-->
+<!--          th:errors="*{name}"></span><br />-->
+<!--    <input type="submit" value="Submit">-->
+<!--</form>-->
+
+
+<form action="#" th:action="@{/process2}" th:object="${car}" method="post">
+    <input type="hidden" th:field="*{id}" />
+
+    <label for="man">Manufacturer:</label>
+    <input id="man" type="text" th:field="*{manufacturer}">
+    <span th:if="${#fields.hasErrors('manufacturer')}"
+          th:errors="*{manufacturer}"></span><br />
+
+    <label for="typ">Model:</label>
+    <input id="typ" type="text" th:field="*{model}">
+    <span th:if="${#fields.hasErrors('model')}"
+          th:errors="*{model}"></span><br />
+
     <label for="yr">Year</label>
-    <input id="yr" type="text">
+    <input id="yr" type="text" th:field="*{year}">
+    <span th:if="${#fields.hasErrors('year')}"
+          th:errors="*{year}"></span><br />
+
     <label for="msrp">MSRP</label>
-    <input id="msrp" type="text">
+    <input id="msrp" type="text" th:field="*{msrp}">
+    <span th:if="${#fields.hasErrors('msrp')}"
+          th:errors="*{msrp}"></span><br />
+
+
+    <br />
+
+    <input type="submit" value="Submit">
 </form>
 </body>
 </html>
+
