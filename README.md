@@ -1,15 +1,24 @@
-Exact Problem:
+How do I create a category that is one to many with cars? 
 
-I can populate page in HomeController.
-I cannot populate page in an HTML page. 
+1. Do I need to add a Set<>  HashSet<> to my HomeController?
+-> I can only get a new category to show
+-> I cannot get cars to show
+-> I cannot get cars to show with a new category
 
-1. How do I change this? 
-2. What is the smallest version of this I can solve?
-3. Is there an analogy, like the TodoList? 
+2. BUG: When I push Car Listing, I do not see the table
+of categories/cars. I see the one category repeatedly show
+itself..... and the original category/cars move down a list.
 
-SOLUTION1: Just get the category form to take in data and display on show
+3. Do I need this? 
 
-
+<!--<ul>-->
+<!--    <th:block th:each="car : ${category.cars}">-->
+<!--        <li th:inline="text"><b>[[${car.model}]]</b>-->
+<!--            released in-->
+<!--            [[${car.year}]].-->
+<!--        </li>-->
+<!--    </th:block>-->
+<!--</ul>-->
 
 ```
 ToDo List allows create, read, update, and delete
